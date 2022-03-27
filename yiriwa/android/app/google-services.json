@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "465674302312",
+    "project_id": "yiriwa-7836a",
+    "storage_bucket": "yiriwa-7836a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465674302312:android:1e6b3982023a3db948dcdd",
+        "android_client_info": {
+          "package_name": "com.example.yiriwa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465674302312-8cfb4934klnq27jdgmpbmc4v3rd50gcp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiMSDSFw_mlPlXZmw7tUVF0nHnQhBCLVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465674302312-8cfb4934klnq27jdgmpbmc4v3rd50gcp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
