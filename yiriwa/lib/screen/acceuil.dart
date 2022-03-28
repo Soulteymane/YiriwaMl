@@ -1,10 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:yiriwa/screen/CreaEntScreen.dart';
 import 'package:yiriwa/screen/meeting_screen.dart';
+import 'package:yiriwa/widgets/postCard.dart';
+import 'package:yiriwa/widgets/vedCard.dart';
 
 class acceuil extends StatefulWidget {
-  const acceuil({Key? key}) : super(key: key);
+  final Stream<QuerySnapshot> userStream =
+      FirebaseFirestore.instance.collection('users').snapshots();
+  acceuil({Key? key}) : super(key: key);
 
   @override
   _acceuilState createState() => _acceuilState();
@@ -106,6 +111,9 @@ class _acceuilState extends State<acceuil> {
                 autoPlayAnimationDuration: Duration(milliseconds: 800),
                 viewportFraction: 0.8,
               ),
+            ),
+            SizedBox(
+              height: 20,
             ),
           ],
         ),

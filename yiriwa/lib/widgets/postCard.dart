@@ -1,7 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
+import 'package:yiriwa/screen/CreaEntScreen.dart';
 import 'package:yiriwa/screen/comments_screen.dart';
 import 'package:yiriwa/service/firestore_methods.dart';
 import 'package:yiriwa/utils/colors.dart';
@@ -60,7 +62,6 @@ class _postCardState extends State<postCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.teal,
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [

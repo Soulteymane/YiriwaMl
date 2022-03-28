@@ -186,12 +186,13 @@ class _inscriptionState extends State<inscription> {
                         activity: dropdownvalue.toString(),
                       );
                       print(res);
-
-                      Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                              builder: (builder) => mobileScreenLayout()),
-                          (route) => false);
+                      if (['role'] == 'admin') {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => mobileScreenLayout()),
+                            (route) => false);
+                      }
                     } catch (e) {
                       final snackBar = SnackBar(content: Text(e.toString()));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);

@@ -13,12 +13,16 @@ import 'package:yiriwa/screen/test.dart';
 const webScreenSize = 600;
 
 List<Widget> homeScreenItems = [
-  const acceuil(),
+  testScreen(),
   CloudFirestoreSearch(),
-  Text("data"),
+  AddPostScreen(
+    uid: FirebaseAuth.instance.currentUser!.uid,
+  ),
   //  AddPostScreen(uid: FirebaseAuth.instance.currentUser!.uid),
   categoriesScreen(),
-  Text("data"),
+  ProfileScreen(
+    uid: FirebaseAuth.instance.currentUser!.uid,
+  ),
   // ProfileScreen(
   //   uid: FirebaseAuth.instance.currentUser!.uid,
   // )

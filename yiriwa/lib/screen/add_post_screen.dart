@@ -161,7 +161,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 child: const Text('Choisir video dans galerie'),
                 onPressed: () async {
                   Navigator.of(context).pop();
-                  Uint8List file = await pickVideo(ImageSource.gallery);
+                  Uint8List file = await pickImage(ImageSource.gallery);
                   setState(() {
                     _file = file;
                   });

@@ -98,7 +98,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               );
             }
-            return const mobileScreenLayout();
+            return const welcomeScreen();
           },
         ),
       ),

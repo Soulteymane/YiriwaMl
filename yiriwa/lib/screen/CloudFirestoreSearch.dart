@@ -32,12 +32,7 @@ class _CloudFirestoreSearchState extends State<CloudFirestoreSearch> {
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: (name != "" && name != null)
-            ? FirebaseFirestore.instance
-                .collection('users')
-                .where("role", arrayContains: "expert")
-                .snapshots()
-            : FirebaseFirestore.instance.collection("users").snapshots(),
+        stream: (FirebaseFirestore.instance.collection("users").snapshots()),
         builder: (context, snapshot) {
           return (snapshot.connectionState == ConnectionState.waiting)
               ? Center(child: CircularProgressIndicator())
