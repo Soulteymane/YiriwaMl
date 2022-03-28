@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class CloudFirestoreSearch extends StatefulWidget {
+class EntrepreneurScreen extends StatefulWidget {
+  const EntrepreneurScreen({Key? key}) : super(key: key);
+
   @override
-  _CloudFirestoreSearchState createState() => _CloudFirestoreSearchState();
+  State<EntrepreneurScreen> createState() => _EntrepreneurScreenState();
 }
 
-class _CloudFirestoreSearchState extends State<CloudFirestoreSearch> {
+class _EntrepreneurScreenState extends State<EntrepreneurScreen> {
   String name = "";
 
   @override
@@ -34,7 +36,7 @@ class _CloudFirestoreSearchState extends State<CloudFirestoreSearch> {
       body: StreamBuilder<QuerySnapshot>(
         stream: (FirebaseFirestore.instance
             .collection("users")
-            .where('role', isEqualTo: "Expert")
+            .where('role', isEqualTo: "Entrepreneur")
             .snapshots()),
         builder: (context, snapshot) {
           return (snapshot.connectionState == ConnectionState.waiting)

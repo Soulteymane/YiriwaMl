@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 import 'package:yiriwa/service/firestore_methods.dart';
 import 'package:yiriwa/utils/utils.dart';
 
@@ -12,12 +13,21 @@ class vedCard extends StatefulWidget {
 }
 
 class _vedCardState extends State<vedCard> {
+  late VideoPlayerController _controller;
   int commentLen = 0;
   bool isLikeAnimating = false;
 
   @override
   void initState() {
     super.initState();
+    _controller = VideoPlayerController.network(
+        'http://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_20mb.mp4')
+      ..initialize().then((_) {
+        _controller.play();
+        _controller.setLooping(true);
+        // Ensure the first frame is shown after the video is initialized
+        setState(() {});
+      });
     fetchCommentLen();
   }
 
@@ -56,7 +66,7 @@ class _vedCardState extends State<vedCard> {
       height: 200,
       width: 300,
       child: Row(
-        children: [
+        children: <Widget>[
           Container(
             height: 200,
             width: 90,

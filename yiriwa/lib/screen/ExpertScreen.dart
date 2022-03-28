@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class CloudFirestoreSearch extends StatefulWidget {
+class ExpertScreen extends StatefulWidget {
+  const ExpertScreen({Key? key}) : super(key: key);
+
   @override
-  _CloudFirestoreSearchState createState() => _CloudFirestoreSearchState();
+  State<ExpertScreen> createState() => _ExpertScreenState();
 }
 
-class _CloudFirestoreSearchState extends State<CloudFirestoreSearch> {
+class _ExpertScreenState extends State<ExpertScreen> {
   String name = "";
 
   @override
