@@ -48,10 +48,7 @@ class _inscriptionState extends State<inscription> {
   }
 
   String? dropdownvalue = 'Entrepreneur';
-  var roleChoix = [
-    'Entrepreneur',
-    'Expert',
-  ];
+  var roleChoix = ['Entrepreneur', 'Expert', 'Investisseur'];
 
   @override
   Widget build(BuildContext context) {
@@ -186,13 +183,6 @@ class _inscriptionState extends State<inscription> {
                         activity: dropdownvalue.toString(),
                       );
                       print(res);
-                      if (['role'] == 'admin') {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (builder) => mobileScreenLayout()),
-                            (route) => false);
-                      }
                     } catch (e) {
                       final snackBar = SnackBar(content: Text(e.toString()));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -201,12 +191,16 @@ class _inscriptionState extends State<inscription> {
                       });
                     }
                   },
-                  child: Text(
-                    "S'inscrire",
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                  child: Center(
+                    child: circular
+                        ? CircularProgressIndicator()
+                        : Text(
+                            "S'inscrire",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
                   ),
                   style: TextButton.styleFrom(
                     elevation: 10,

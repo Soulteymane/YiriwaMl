@@ -56,7 +56,7 @@ class _testScreenState extends State<testScreen> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          children: [
+          children: <Widget>[
             Container(
               height: 150,
               width: MediaQuery.of(context).size.width,

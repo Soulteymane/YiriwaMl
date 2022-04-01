@@ -71,7 +71,7 @@ class _vedCardState extends State<vedCard> {
             height: 200,
             width: 90,
             child: Column(
-              children: [
+              children: <Widget>[
                 Container(
                   width: 50,
                   height: 50,
@@ -88,16 +88,20 @@ class _vedCardState extends State<vedCard> {
               ],
             ),
           ),
-          Container(
-            height: 200,
-            width: MediaQuery.of(context).size.width * 0.70,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                image: NetworkImage(widget.snap["postUrl"].toString()),
-                fit: BoxFit.cover,
+          Column(
+            children: <Widget>[
+              Container(
+                height: 150,
+                width: MediaQuery.of(context).size.width * 0.70,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    image: NetworkImage(widget.snap["postUrl"].toString()),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
         ],
       ),

@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:yiriwa/screen/ExpertScreen.dart';
 
-class ExpertScreen extends StatefulWidget {
-  const ExpertScreen({Key? key}) : super(key: key);
+class investisseursScreen extends StatefulWidget {
+  const investisseursScreen({Key? key}) : super(key: key);
 
   @override
-  State<ExpertScreen> createState() => _ExpertScreenState();
+  State<investisseursScreen> createState() => _investisseursScreenState();
 }
 
-class _ExpertScreenState extends State<ExpertScreen> {
+class _investisseursScreenState extends State<investisseursScreen> {
   String name = "";
 
   @override
@@ -36,7 +37,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
       body: StreamBuilder<QuerySnapshot>(
         stream: (FirebaseFirestore.instance
             .collection("users")
-            .where('role', isEqualTo: "Expert")
+            .where('role', isEqualTo: "Investisseur")
             .snapshots()),
         builder: (context, snapshot) {
           return (snapshot.connectionState == ConnectionState.waiting)
@@ -104,29 +105,6 @@ class _ExpertScreenState extends State<ExpertScreen> {
                   },
                 );
         },
-      ),
-    );
-  }
-}
-
-class DetailScreen extends StatelessWidget {
-  // In the constructor, require a Todo.
-  const DetailScreen({
-    Key? key,
-  }) : super(key: key);
-
-  // Declare a field that holds the Todo.
-
-  @override
-  Widget build(BuildContext context) {
-    // Use the Todo to create the UI.
-    return Scaffold(
-      appBar: AppBar(
-          // title: Text(todo.title),
-          ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        // child: Text(todo.description),
       ),
     );
   }

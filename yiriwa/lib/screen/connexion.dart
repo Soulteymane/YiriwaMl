@@ -134,12 +134,16 @@ class _connexionState extends State<connexion> {
                       });
                     }
                   },
-                  child: Text(
-                    "Se connecter",
-                    style: TextStyle(
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                  child: Center(
+                    child: circular
+                        ? CircularProgressIndicator()
+                        : Text(
+                            "Se connecter",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
                   ),
                   style: TextButton.styleFrom(
                     elevation: 10,
