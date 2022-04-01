@@ -48,7 +48,7 @@ class _inscriptionState extends State<inscription> {
   }
 
   String? dropdownvalue = 'Entrepreneur';
-  var roleChoix = ['Entrepreneur', 'Expert', 'Investisseur'];
+  var roleChoix = ['Entrepreneur', 'Expert'];
 
   @override
   Widget build(BuildContext context) {

@@ -232,7 +232,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           itemCount: (snapshot.data! as dynamic).docs.length,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 1,
+                            crossAxisCount: 2,
                             crossAxisSpacing: 5,
                             mainAxisSpacing: 1.5,
                             childAspectRatio: 1,

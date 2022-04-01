@@ -106,39 +106,75 @@ class _testScreenState extends State<testScreen> {
               items: [
                 Card(
                   elevation: 10,
-                  child: Container(
-                      width: 300,
-                      margin: EdgeInsets.all(6.0),
-                      child: Center(
-                        child: Text(
-                          "Fidélisez vos clients avec des cadeaux",
-                          style: TextStyle(fontSize: 17),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 80,
+                        width: 80,
+                        child: IconButton(
+                          icon: Image.asset("assets/images/loyalty.png"),
+                          onPressed: () {},
                         ),
-                      )),
+                      ),
+                      Container(
+                          width: 300,
+                          margin: EdgeInsets.all(6.0),
+                          child: Center(
+                            child: Text(
+                              "Fidélisez vos clients avec des cadeaux",
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          )),
+                    ],
+                  ),
                 ),
                 Card(
                   elevation: 10,
-                  child: Container(
-                      width: 300,
-                      margin: EdgeInsets.all(6.0),
-                      child: Center(
-                        child: Text(
-                          "Soyez à l'ecoute",
-                          style: TextStyle(fontSize: 17),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 80,
+                        width: 80,
+                        child: IconButton(
+                          icon: Image.asset("assets/images/ecoute.png"),
+                          onPressed: () {},
                         ),
-                      )),
+                      ),
+                      Container(
+                          width: 300,
+                          margin: EdgeInsets.all(6.0),
+                          child: Center(
+                            child: Text(
+                              "Soyez à l'ecoute",
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          )),
+                    ],
+                  ),
                 ),
                 Card(
                   elevation: 10,
-                  child: Container(
-                      width: 300,
-                      margin: EdgeInsets.all(6.0),
-                      child: Center(
-                        child: Text(
-                          "Etudiez votre marché cible",
-                          style: TextStyle(fontSize: 17),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 80,
+                        width: 80,
+                        child: IconButton(
+                          icon: Image.asset("assets/images/marche.png"),
+                          onPressed: () {},
                         ),
-                      )),
+                      ),
+                      Container(
+                          width: 300,
+                          margin: EdgeInsets.all(6.0),
+                          child: Center(
+                            child: Text(
+                              "Etudiez votre marché cible",
+                              style: TextStyle(fontSize: 17),
+                            ),
+                          )),
+                    ],
+                  ),
                 ),
               ],
               options: CarouselOptions(
