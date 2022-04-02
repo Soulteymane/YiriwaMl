@@ -34,6 +34,7 @@ class AuthClass {
     required String username,
     required String activity,
     required String entName,
+    required String description,
     required String expPro,
     required Uint8List file,
     required DateTime lastMessageTime,
@@ -64,6 +65,7 @@ class AuthClass {
           lastMessageTime: lastMessageTime,
           entName: entName,
           expPro: expPro,
+          description: description,
         );
 
         await _firestore

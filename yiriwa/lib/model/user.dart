@@ -14,6 +14,7 @@ class User {
   final List abonnement;
   final String activity;
   final DateTime lastMessageTime;
+  final String description;
 
   const User({
     required this.email,
@@ -26,6 +27,7 @@ class User {
     required this.abonnement,
     required this.activity,
     required this.lastMessageTime,
+    required this.description,
   });
   Map<String, dynamic> toJson() => {
         'username': username,
@@ -51,6 +53,7 @@ class User {
         abonnement: snapshot['abonnement'],
         activity: snapshot['role'],
         entName: snapshot['Entreprise'],
+        description: snapshot['Description'],
         expPro: snapshot['Experience'],
         lastMessageTime: snapshot['lastMessageTime']);
   }
@@ -76,5 +79,6 @@ class User {
         activity: activity,
         entName: entName,
         expPro: expPro,
+        description: description,
       );
 }

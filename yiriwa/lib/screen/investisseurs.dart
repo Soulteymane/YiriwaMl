@@ -52,7 +52,7 @@ class _investisseursScreenState extends State<investisseursScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const DetailScreen(),
+                            builder: (context) => const Text(""),
                             // Pass the arguments as part of the RouteSettings. The
                             // DetailScreen reads the arguments from these settings.
                             settings: RouteSettings(

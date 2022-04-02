@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:yiriwa/screen/CreaEntPages/Profils/ExpertProfilScreen.dart';
 
 class ExpertScreen extends StatefulWidget {
   const ExpertScreen({Key? key}) : super(key: key);
@@ -51,12 +52,14 @@ class _ExpertScreenState extends State<ExpertScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const DetailScreen(),
+                            builder: (context) => ExpertProfilScreen(
+                              uid: data['uid'],
+                              username: data['username'],
+                              photo: data['photo'],
+                              role: data['role'],
+                            ),
                             // Pass the arguments as part of the RouteSettings. The
                             // DetailScreen reads the arguments from these settings.
-                            settings: RouteSettings(
-                              arguments: data[index],
-                            ),
                           ),
                         );
                       },
@@ -104,29 +107,6 @@ class _ExpertScreenState extends State<ExpertScreen> {
                   },
                 );
         },
-      ),
-    );
-  }
-}
-
-class DetailScreen extends StatelessWidget {
-  // In the constructor, require a Todo.
-  const DetailScreen({
-    Key? key,
-  }) : super(key: key);
-
-  // Declare a field that holds the Todo.
-
-  @override
-  Widget build(BuildContext context) {
-    // Use the Todo to create the UI.
-    return Scaffold(
-      appBar: AppBar(
-          // title: Text(todo.title),
-          ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        // child: Text(todo.description),
       ),
     );
   }

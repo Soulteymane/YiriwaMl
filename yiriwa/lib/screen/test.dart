@@ -103,7 +103,7 @@ class _testScreenState extends State<testScreen> {
               ),
             ),
             CarouselSlider(
-              items: [
+              items: <Widget>[
                 Card(
                   elevation: 10,
                   child: Column(
@@ -191,25 +191,28 @@ class _testScreenState extends State<testScreen> {
             SizedBox(
               height: 20,
             ),
-            StreamBuilder(
-              stream:
-                  FirebaseFirestore.instance.collection('posts').snapshots(),
-              builder: (context,
-                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
+            Container(
+              child: StreamBuilder(
+                stream:
+                    FirebaseFirestore.instance.collection('posts').snapshots(),
+                builder: (context,
+                    AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                        snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
 
-                return new ListView.builder(
-                    physics: AlwaysScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: snapshot.data!.docs.length,
-                    itemBuilder: (context, index) => vedCard(
-                          snap: snapshot.data!.docs[index].data(),
-                        ));
-              },
+                  return new ListView.builder(
+                      physics: AlwaysScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: snapshot.data!.docs.length,
+                      itemBuilder: (context, index) => vedCard(
+                            snap: snapshot.data!.docs[index].data(),
+                          ));
+                },
+              ),
             ),
           ],
         ),

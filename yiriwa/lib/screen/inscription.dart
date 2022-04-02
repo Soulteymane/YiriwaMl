@@ -163,6 +163,10 @@ class _inscriptionState extends State<inscription> {
               SizedBox(
                 height: 15,
               ),
+              textItem("Bref description", _descController, false),
+              SizedBox(
+                height: 15,
+              ),
               SizedBox(
                 width: 150,
                 height: 50,
@@ -181,8 +185,14 @@ class _inscriptionState extends State<inscription> {
                         expPro: _expController.text,
                         file: _image!,
                         activity: dropdownvalue.toString(),
+                        description: _descController.text,
                       );
                       print(res);
+                      Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                              builder: (builder) => mobileScreenLayout()),
+                          (route) => false);
                     } catch (e) {
                       final snackBar = SnackBar(content: Text(e.toString()));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
