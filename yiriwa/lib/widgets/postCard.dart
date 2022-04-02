@@ -229,14 +229,15 @@ class _postCardState extends State<postCard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 DefaultTextStyle(
-                    style: Theme.of(context)
-                        .textTheme
-                        .subtitle2!
-                        .copyWith(fontWeight: FontWeight.w800),
-                    child: Text(
-                      "${widget.snap['likes'].length} j'aimes",
-                      style: TextStyle(color: Colors.white),
-                    )),
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontWeight: FontWeight.w800),
+                  child: Text(
+                    "${widget.snap['likes'].length} j'aimes",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.only(

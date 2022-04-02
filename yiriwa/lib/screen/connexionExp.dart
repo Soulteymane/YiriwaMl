@@ -5,14 +5,14 @@ import 'package:yiriwa/screen/phoneAuthPage.dart';
 import 'package:yiriwa/service/Auth_Service.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 
-class connexion extends StatefulWidget {
-  const connexion({Key? key}) : super(key: key);
+class connexionExp extends StatefulWidget {
+  const connexionExp({Key? key}) : super(key: key);
 
   @override
-  _connexionState createState() => _connexionState();
+  State<connexionExp> createState() => _connexionExpState();
 }
 
-class _connexionState extends State<connexion> {
+class _connexionExpState extends State<connexionExp> {
   firebase_auth.FirebaseAuth firebaseAuth = firebase_auth.FirebaseAuth.instance;
   TextEditingController _userNameController = TextEditingController();
   TextEditingController _activityController = TextEditingController();
@@ -69,7 +69,7 @@ class _connexionState extends State<connexion> {
               ),
               Container(
                 child: Text(
-                  "Bienvenue connectez-vous (Entrepreneur)",
+                  "Bienvenue connectez-vous (Expert)",
                   style: TextStyle(
                       color: Colors.grey.shade600,
                       fontFamily: 'Montserrat',

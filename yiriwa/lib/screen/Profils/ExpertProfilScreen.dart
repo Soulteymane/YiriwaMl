@@ -11,12 +11,14 @@ class ExpertProfilScreen extends StatefulWidget {
   final String username;
   final String photo;
   final String role;
+  final String description;
   const ExpertProfilScreen({
     Key? key,
     required this.username,
     required this.photo,
     required this.role,
     required this.uid,
+    required this.description,
   }) : super(key: key);
 
   @override
@@ -52,7 +54,7 @@ class _ExpertProfilScreenState extends State<ExpertProfilScreen> {
       // get post lENGTH
       var postSnap = await FirebaseFirestore.instance
           .collection('posts')
-          .where('uid', isEqualTo: FirebaseAuth.instance.currentUser!.uid)
+          .where('uid', isEqualTo: widget.uid)
           .get();
 
       postLen = postSnap.docs.length;
@@ -231,7 +233,7 @@ class _ExpertProfilScreenState extends State<ExpertProfilScreen> {
                               ],
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -255,10 +257,7 @@ class _ExpertProfilScreenState extends State<ExpertProfilScreen> {
                       height: 10.0,
                     ),
                     Text(
-                      'My name is Alice and I am  a freelance mobile app developper.\n'
-                      'if you need any mobile app for your company then contact me for more informations\n'
-                      'My name is Alice and I am  a freelance mobile app developper.\n'
-                      'if you need any mobile app for your company then contact me for more informations\n',
+                      widget.description,
                       style: TextStyle(
                         fontSize: 22.0,
                         fontWeight: FontWeight.w300,
@@ -273,35 +272,84 @@ class _ExpertProfilScreenState extends State<ExpertProfilScreen> {
             SizedBox(
               height: 20.0,
             ),
+            FutureBuilder(
+              future: FirebaseFirestore.instance
+                  .collection('posts')
+                  .where('uid', isEqualTo: widget.uid)
+                  .get(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+
+                return GridView.builder(
+                  shrinkWrap: true,
+                  itemCount: (snapshot.data! as dynamic).docs.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 1.5,
+                    childAspectRatio: 1,
+                  ),
+                  itemBuilder: (context, index) {
+                    DocumentSnapshot snap =
+                        (snapshot.data! as dynamic).docs[index];
+
+                    return GestureDetector(
+                      onTap: () {},
+                      child: Card(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: NetworkImage(snap['postUrl']),
+                                fit: BoxFit.cover,
+                              )),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
             Container(
               width: 300.00,
               child: RaisedButton(
-                  onPressed: () {},
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(80.0)),
-                  elevation: 0.0,
-                  padding: EdgeInsets.all(0.0),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.centerRight,
-                          end: Alignment.centerLeft,
-                          colors: [Colors.tealAccent, Colors.teal]),
-                      borderRadius: BorderRadius.circular(30.0),
+                onPressed: () {},
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0)),
+                elevation: 0.0,
+                padding: EdgeInsets.all(0.0),
+                child: Ink(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.centerRight,
+                        end: Alignment.centerLeft,
+                        colors: [Colors.tealAccent, Colors.teal]),
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
+                  child: Container(
+                    constraints:
+                        BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Contactez moi",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 26.0,
+                          fontWeight: FontWeight.w300),
                     ),
-                    child: Container(
-                      constraints:
-                          BoxConstraints(maxWidth: 300.0, minHeight: 50.0),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Contactez moi",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 26.0,
-                            fontWeight: FontWeight.w300),
-                      ),
-                    ),
-                  )),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
             ),
           ],
         ),

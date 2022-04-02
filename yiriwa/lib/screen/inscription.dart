@@ -35,9 +35,12 @@ class _inscriptionState extends State<inscription> {
   void dispose() {
     super.dispose();
     _emailController.dispose();
+    _EntrepriseController.dispose();
     _pwdController.dispose();
     _activityController.dispose();
     _userNameController.dispose();
+    _descController.dispose();
+    _expController.dispose();
   }
 
   void selectImage() async {
@@ -190,8 +193,7 @@ class _inscriptionState extends State<inscription> {
                       print(res);
                       Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(
-                              builder: (builder) => mobileScreenLayout()),
+                          MaterialPageRoute(builder: (builder) => connexion()),
                           (route) => false);
                     } catch (e) {
                       final snackBar = SnackBar(content: Text(e.toString()));

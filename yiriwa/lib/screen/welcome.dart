@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:yiriwa/screen/connexion.dart';
+import 'package:yiriwa/screen/connexionExp.dart';
 import 'package:yiriwa/screen/inscription.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
@@ -72,11 +74,12 @@ class _welcomeScreenState extends State<welcomeScreen> {
             Container(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const inscription()),
-                  );
+                  _onAlertButtonsPressedIns(context);
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //       builder: (context) => const inscription()),
+                  // );
                 },
                 child: Container(
                   height: 50,
@@ -114,10 +117,7 @@ class _welcomeScreenState extends State<welcomeScreen> {
             Container(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const connexion()),
-                  );
+                  _onAlertButtonsPressedCon(context);
                 },
                 child: Container(
                   height: 50,
@@ -156,4 +156,69 @@ class _welcomeScreenState extends State<welcomeScreen> {
       ),
     );
   }
+}
+
+_onAlertButtonsPressedIns(context) {
+  Alert(
+    context: context,
+    type: AlertType.none,
+    title: "COMMENT VOULEZ-VOUS VOUS INSCRIRE? ",
+    desc:
+        "Choisissez si vous voulez vous inscrire en tant qu'entrepreneur ou expert ",
+    buttons: [
+      DialogButton(
+        child: Text(
+          "Entrépreneur",
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const inscription()),
+        ),
+        color: Colors.teal,
+      ),
+      DialogButton(
+        child: Text(
+          "Expert",
+          style: TextStyle(color: Colors.teal, fontSize: 18),
+        ),
+        onPressed: () => Navigator.pop(context),
+        color: Colors.white,
+      )
+    ],
+  ).show();
+}
+
+_onAlertButtonsPressedCon(context) {
+  Alert(
+    context: context,
+    type: AlertType.none,
+    title: "COMMENT VOULEZ-VOUS VOUS CONNECTER? ",
+    desc:
+        "Choisissez si vous voulez vous connecter en tant qu'entrepreneur ou expert ",
+    buttons: [
+      DialogButton(
+        child: Text(
+          "Entrépreneur",
+          style: TextStyle(color: Colors.white, fontSize: 18),
+        ),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const connexion()),
+        ),
+        color: Colors.teal,
+      ),
+      DialogButton(
+        child: Text(
+          "Expert",
+          style: TextStyle(color: Colors.teal, fontSize: 18),
+        ),
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const connexionExp()),
+        ),
+        color: Colors.white,
+      )
+    ],
+  ).show();
 }

@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:video_player/video_player.dart';
+import 'package:yiriwa/screen/comments_screen.dart';
 import 'package:yiriwa/service/firestore_methods.dart';
 import 'package:yiriwa/utils/utils.dart';
+import 'package:yiriwa/widgets/like_animation.dart';
 
 class vedCard extends StatefulWidget {
   final snap;
@@ -62,7 +65,7 @@ class _vedCardState extends State<vedCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 1),
       height: 200,
       width: 300,
       child: Row(
@@ -90,17 +93,52 @@ class _vedCardState extends State<vedCard> {
           ),
           Column(
             children: <Widget>[
-              Container(
-                height: 150,
-                width: MediaQuery.of(context).size.width * 0.70,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: NetworkImage(widget.snap["postUrl"].toString()),
-                    fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 150,
+                  width: MediaQuery.of(context).size.width * 0.70,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                      image: NetworkImage(widget.snap["postUrl"].toString()),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
+              Row(
+                children: <Widget>[
+                  LikeAnimation(
+                    isAnimating:
+                        widget.snap['likes'].contains(widget.snap['uid']),
+                    smallLike: true,
+                    child: IconButton(
+                      icon: widget.snap['likes'].contains(widget.snap['uid'])
+                          ? const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                            )
+                          : const Icon(
+                              Icons.favorite_border,
+                              color: Colors.grey,
+                            ),
+                      onPressed: () => FireStoreMethods().likePost(
+                        widget.snap['postId'].toString(),
+                        widget.snap['uid'].toString(),
+                        widget.snap['likes'],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text(
+                    "${widget.snap['likes'].length} appreciations",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                ],
+              )
             ],
           ),
         ],

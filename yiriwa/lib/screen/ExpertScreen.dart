@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:yiriwa/screen/CreaEntPages/Profils/ExpertProfilScreen.dart';
+import 'package:yiriwa/screen/Profils/ExpertProfilScreen.dart';
 
 class ExpertScreen extends StatefulWidget {
   const ExpertScreen({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class ExpertScreen extends StatefulWidget {
 }
 
 class _ExpertScreenState extends State<ExpertScreen> {
-  String name = "";
+  String username = "";
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +28,23 @@ class _ExpertScreenState extends State<ExpertScreen> {
             cursorColor: Colors.teal,
             onChanged: (val) {
               setState(() {
-                name = val;
+                username = val;
               });
             },
           ),
         ),
       ),
       body: StreamBuilder<QuerySnapshot>(
-        stream: (FirebaseFirestore.instance
-            .collection("users")
-            .where('role', isEqualTo: "Expert")
-            .snapshots()),
+        stream: (username != "" && username != null)
+            ? FirebaseFirestore.instance
+                .collection('users')
+                .where('role', isEqualTo: "Expert")
+                .where('username', isEqualTo: username)
+                .snapshots()
+            : (FirebaseFirestore.instance
+                .collection("users")
+                .where('role', isEqualTo: "Expert")
+                .snapshots()),
         builder: (context, snapshot) {
           return (snapshot.connectionState == ConnectionState.waiting)
               ? Center(child: CircularProgressIndicator())
@@ -57,6 +63,7 @@ class _ExpertScreenState extends State<ExpertScreen> {
                               username: data['username'],
                               photo: data['photo'],
                               role: data['role'],
+                              description: data['description'],
                             ),
                             // Pass the arguments as part of the RouteSettings. The
                             // DetailScreen reads the arguments from these settings.
