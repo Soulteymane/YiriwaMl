@@ -125,7 +125,7 @@ class _connexionState extends State<connexion> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (builder) => mobileScreenEnt()),
+                              builder: (builder) => mobileScreenLayout()),
                           (route) => false);
                     } catch (e) {
                       final snackBar = SnackBar(content: Text(e.toString()));
