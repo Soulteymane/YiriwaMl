@@ -75,10 +75,10 @@ class _mobileScreenLayoutState extends State<mobileScreenLayout> {
               backgroundColor: primaryColor),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.indeterminate_check_box_rounded,
+              Icons.message_rounded,
               color: (_page == 3) ? primaryColor : secondaryColor,
             ),
-            label: 'Catégories',
+            label: 'Mes discussions',
             backgroundColor: primaryColor,
           ),
           BottomNavigationBarItem(

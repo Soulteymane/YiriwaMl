@@ -4,16 +4,16 @@ import 'package:provider/provider.dart';
 import 'package:yiriwa/providers/user_providers.dart';
 import 'package:yiriwa/model/user.dart' as model;
 import 'package:yiriwa/utils/colors.dart';
-import 'package:yiriwa/utils/global_variable.dart';
+import 'package:yiriwa/utils/global_variable_Ent.dart';
 
-class mobileScreenExp extends StatefulWidget {
-  const mobileScreenExp({Key? key}) : super(key: key);
+class mobileScreenEnt extends StatefulWidget {
+  const mobileScreenEnt({Key? key}) : super(key: key);
 
   @override
-  State<mobileScreenExp> createState() => _mobileScreenExpState();
+  State<mobileScreenEnt> createState() => _mobileScreenEntState();
 }
 
-class _mobileScreenExpState extends State<mobileScreenExp> {
+class _mobileScreenEntState extends State<mobileScreenEnt> {
   int _page = 0;
   late PageController pageController; // for tabs animation
 
@@ -69,7 +69,7 @@ class _mobileScreenExpState extends State<mobileScreenExp> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.indeterminate_check_box_rounded,
-              color: (_page == 3) ? primaryColor : secondaryColor,
+              color: (_page == 2) ? primaryColor : secondaryColor,
             ),
             label: 'Catégories',
             backgroundColor: primaryColor,
@@ -77,7 +77,7 @@ class _mobileScreenExpState extends State<mobileScreenExp> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.person,
-              color: (_page == 4) ? primaryColor : secondaryColor,
+              color: (_page == 3) ? primaryColor : secondaryColor,
             ),
             label: 'Profil',
             backgroundColor: primaryColor,

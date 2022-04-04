@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yiriwa/responsive/mobile_screen.dart';
-import 'package:yiriwa/responsive/mobile_screenExp.dart';
+import 'package:yiriwa/responsive/mobile_screenEnt.dart';
 import 'package:yiriwa/screen/inscription.dart';
 import 'package:yiriwa/screen/phoneAuthPage.dart';
 import 'package:yiriwa/service/Auth_Service.dart';
@@ -125,7 +125,7 @@ class _connexionExpState extends State<connexionExp> {
                       Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                              builder: (builder) => mobileScreenExp()),
+                              builder: (builder) => mobileScreenLayout()),
                           (route) => false);
                     } catch (e) {
                       final snackBar = SnackBar(content: Text(e.toString()));

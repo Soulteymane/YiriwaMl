@@ -76,13 +76,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         : Scaffold(
             appBar: AppBar(
-              leading: CircleAvatar(
-                backgroundColor: Colors.grey,
-                backgroundImage: NetworkImage(
-                  userData['photo'],
-                ),
-                radius: 50,
-              ),
               actions: [],
               backgroundColor: Colors.teal,
               title: Text(
@@ -106,12 +99,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 flex: 1,
                                 child: Column(
                                   children: [
+                                    CircleAvatar(
+                                      backgroundColor: Colors.grey,
+                                      backgroundImage: NetworkImage(
+                                        userData['photo'],
+                                      ),
+                                      radius: 50,
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        buildStatColumn(postLen, "Tutos"),
+                                        buildStatColumn(
+                                            postLen, "Publications"),
                                         buildStatColumn(followers, "Abonnés"),
                                         buildStatColumn(
                                             following, "Abonnements"),
@@ -143,7 +147,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               )
                                             : isFollowing
                                                 ? FollowButton(
-                                                    text: 'Unfollow',
+                                                    text: "Se desabonner",
                                                     backgroundColor:
                                                         Colors.white,
                                                     textColor: Colors.black,
@@ -163,7 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                                     },
                                                   )
                                                 : FollowButton(
-                                                    text: 'Follow',
+                                                    text: "S'abonner",
                                                     backgroundColor:
                                                         Colors.blue,
                                                     textColor: Colors.grey,
