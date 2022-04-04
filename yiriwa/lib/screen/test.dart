@@ -54,168 +54,163 @@ class _testScreenState extends State<testScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              height: 150,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.teal,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: Text(
-                      "Guide Yirirwa",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 24,
-                        fontFamily: 'Montserrat',
-                      ),
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: 150,
+            width: MediaQuery.of(context).size.width,
+            color: Colors.teal,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 20,
+                ),
+                Center(
+                  child: Text(
+                    "Guide Yirirwa",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontFamily: 'Montserrat',
                     ),
                   ),
-                  Center(
-                    child: Text(
-                      "Nous vous orientons sur la manière de créer votre entréprise",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: 'Montserrat',
-                      ),
+                ),
+                Center(
+                  child: Text(
+                    "Nous vous orientons sur la manière de créer votre entréprise",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontFamily: 'Montserrat',
                     ),
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const CreatEnt()),
-                      );
-                    },
-                    child: Text("Commencer"),
-                  ),
-                ],
-              ),
-            ),
-            CarouselSlider(
-              items: <Widget>[
-                Card(
-                  elevation: 10,
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 80,
-                        child: IconButton(
-                          icon: Image.asset("assets/images/loyalty.png"),
-                          onPressed: () {},
-                        ),
-                      ),
-                      Container(
-                          width: 300,
-                          margin: EdgeInsets.all(6.0),
-                          child: Center(
-                            child: Text(
-                              "Fidélisez vos clients avec des cadeaux",
-                              style: TextStyle(fontSize: 17),
-                            ),
-                          )),
-                    ],
-                  ),
                 ),
-                Card(
-                  elevation: 10,
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 80,
-                        child: IconButton(
-                          icon: Image.asset("assets/images/ecoute.png"),
-                          onPressed: () {},
-                        ),
-                      ),
-                      Container(
-                          width: 300,
-                          margin: EdgeInsets.all(6.0),
-                          child: Center(
-                            child: Text(
-                              "Soyez à l'ecoute",
-                              style: TextStyle(fontSize: 17),
-                            ),
-                          )),
-                    ],
-                  ),
+                SizedBox(
+                  height: 10,
                 ),
-                Card(
-                  elevation: 10,
-                  child: Column(
-                    children: [
-                      Container(
-                        height: 80,
-                        width: 80,
-                        child: IconButton(
-                          icon: Image.asset("assets/images/marche.png"),
-                          onPressed: () {},
-                        ),
-                      ),
-                      Container(
-                          width: 300,
-                          margin: EdgeInsets.all(6.0),
-                          child: Center(
-                            child: Text(
-                              "Etudiez votre marché cible",
-                              style: TextStyle(fontSize: 17),
-                            ),
-                          )),
-                    ],
-                  ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const CreatEnt()),
+                    );
+                  },
+                  child: Text("Commencer"),
                 ),
               ],
-              options: CarouselOptions(
-                height: 180.0,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                aspectRatio: 4 / 3,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                viewportFraction: 0.8,
+            ),
+          ),
+          CarouselSlider(
+            items: <Widget>[
+              Card(
+                elevation: 10,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: IconButton(
+                        icon: Image.asset("assets/images/loyalty.png"),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Container(
+                        width: 300,
+                        margin: EdgeInsets.all(6.0),
+                        child: Center(
+                          child: Text(
+                            "Fidélisez vos clients avec des cadeaux",
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        )),
+                  ],
+                ),
               ),
+              Card(
+                elevation: 10,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: IconButton(
+                        icon: Image.asset("assets/images/ecoute.png"),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Container(
+                        width: 300,
+                        margin: EdgeInsets.all(6.0),
+                        child: Center(
+                          child: Text(
+                            "Soyez à l'ecoute",
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+              Card(
+                elevation: 10,
+                child: Column(
+                  children: [
+                    Container(
+                      height: 80,
+                      width: 80,
+                      child: IconButton(
+                        icon: Image.asset("assets/images/marche.png"),
+                        onPressed: () {},
+                      ),
+                    ),
+                    Container(
+                        width: 300,
+                        margin: EdgeInsets.all(6.0),
+                        child: Center(
+                          child: Text(
+                            "Etudiez votre marché cible",
+                            style: TextStyle(fontSize: 17),
+                          ),
+                        )),
+                  ],
+                ),
+              ),
+            ],
+            options: CarouselOptions(
+              height: 180.0,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              aspectRatio: 4 / 3,
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enableInfiniteScroll: true,
+              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              viewportFraction: 0.8,
             ),
-            SizedBox(
-              height: 20,
-            ),
-            Container(
-              child: StreamBuilder(
-                stream:
-                    FirebaseFirestore.instance.collection('posts').snapshots(),
-                builder: (context,
-                    AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
-                        snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  }
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            child: StreamBuilder(
+              stream:
+                  FirebaseFirestore.instance.collection('posts').snapshots(),
+              builder: (context,
+                  AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
 
-                  return new ListView.builder(
-                      physics: AlwaysScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: snapshot.data!.docs.length,
-                      itemBuilder: (context, index) => vedCard(
-                            snap: snapshot.data!.docs[index].data(),
-                          ));
-                },
-              ),
+                return new ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data!.docs.length,
+                    itemBuilder: (context, index) => vedCard(
+                          snap: snapshot.data!.docs[index].data(),
+                        ));
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

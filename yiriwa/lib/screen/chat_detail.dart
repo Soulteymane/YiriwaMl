@@ -114,7 +114,16 @@ class _ChatDetailState extends State<ChatDetail> {
                   color: Colors.teal,
                 ),
               ),
-              previousPageTitle: "Retourner",
+              leading: CupertinoButton(
+                padding: EdgeInsets.zero,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.teal,
+                ),
+              ),
             ),
             child: SafeArea(
               child: Column(

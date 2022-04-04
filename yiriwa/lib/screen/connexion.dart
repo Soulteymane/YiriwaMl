@@ -70,7 +70,7 @@ class _connexionState extends State<connexion> {
               ),
               Container(
                 child: Text(
-                  "Bienvenue connectez-vous (Entrepreneur)",
+                  "Bienvenue connectez-vous",
                   style: TextStyle(
                       color: Colors.grey.shade600,
                       fontFamily: 'Montserrat',

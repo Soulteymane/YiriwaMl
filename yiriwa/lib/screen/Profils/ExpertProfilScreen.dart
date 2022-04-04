@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:yiriwa/screen/chat_detail.dart';
 import 'package:yiriwa/service/Auth_Service.dart';
 import 'package:yiriwa/service/firestore_methods.dart';
 import 'package:yiriwa/utils/colors.dart';
@@ -26,6 +28,16 @@ class ExpertProfilScreen extends StatefulWidget {
 }
 
 class _ExpertProfilScreenState extends State<ExpertProfilScreen> {
+  var currentUser = FirebaseAuth.instance.currentUser!.uid;
+
+  void callChatDetailScreen(BuildContext context, String name, String uid) {
+    Navigator.push(
+        context,
+        CupertinoPageRoute(
+            builder: (context) =>
+                ChatDetail(friendUid: uid, friendName: name)));
+  }
+
   AuthClass authClass = AuthClass();
 
   var userData = {};
@@ -320,7 +332,14 @@ class _ExpertProfilScreenState extends State<ExpertProfilScreen> {
             Container(
               width: 300.00,
               child: RaisedButton(
-                onPressed: () {},
+                onPressed: () {
+                  callChatDetailScreen(
+                      context, userData['username'], userData['uid']);
+                  title:
+                  Text(userData['username']);
+                  subtitle:
+                  Text(userData['role']);
+                },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(80.0)),
                 elevation: 0.0,
